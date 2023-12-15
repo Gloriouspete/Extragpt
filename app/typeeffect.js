@@ -54,14 +54,32 @@ const TypingEffect = ({ text, bot }) => {
 
 
 
-    if (bot === true) {
-        return <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath, supersub, remarkBreaks]}
-            rehypePlugins={[rehypeKatex,rehypeRaw]} components={components} className='text-base text-slate-900 font-sora' children={displayedText} />;
-    }
-    else {
-        return <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath, supersub, remarkBreaks]}
-            rehypePlugins={[rehypeKatex,rehypeRaw]} components={components} className='text-base text-slate-900 font-sora' children={text} />
-    }
+  // Assuming 'bot' is a boolean variable determining which content to display
+
+if (bot === true) {
+    return (
+        <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkMath, supersub, remarkBreaks]}
+            rehypePlugins={[rehypeKatex, rehypeRaw]}
+            components={components}
+            className='text-base text-slate-900 font-sora'
+        >
+            {displayedText}
+        </ReactMarkdown>
+    );
+} else {
+    return (
+        <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkMath, supersub, remarkBreaks]}
+            rehypePlugins={[rehypeKatex, rehypeRaw]}
+            components={components}
+            className='text-base text-slate-900 font-sora'
+        >
+            {text}
+        </ReactMarkdown>
+    );
+}
+
 
 };
 

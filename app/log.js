@@ -1,7 +1,7 @@
 'use client'
 import axios from "axios"
 import Tesseract from "tesseract.js";
-export default async function Log(text) {
+ const Log = async(text) => {
 console.log('got here')
   try {
     const response = await axios("https://nlpbackend-vmje.onrender.com/chat", {
@@ -67,3 +67,5 @@ export const handleFileSelection = async (files) => {
     }
   }
 };
+
+export default Log
